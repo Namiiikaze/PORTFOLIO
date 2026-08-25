@@ -1,6 +1,6 @@
 ﻿/* =====================================================================
-   Ayobami Shoyombo — Portfolio
-   Minimal CSS — layout handled by Tailwind.
+   Ayobami Shoyombo | Portfolio
+   Minimal CSS. Layout handled by Tailwind.
    This file only contains: reset, animations, JS-toggled states,
    and compound selectors Tailwind cannot express.
    ===================================================================== */
@@ -96,7 +96,7 @@ a:hover .project__media img { transform: scale(1.04); }
 :focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 
 /* =====================================================================
-   COMPATIBILITY LAYER — applies to pages not yet migrated to Tailwind
+   COMPATIBILITY LAYER: applies to pages not yet migrated to Tailwind
    Keeps old class-based pages fully styled while migration is in progress.
    ===================================================================== */
 

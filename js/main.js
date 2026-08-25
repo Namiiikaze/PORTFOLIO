@@ -1,5 +1,5 @@
 /* =====================================================================
-   Ayobami Shoyombo — Portfolio
+   Ayobami Shoyombo | Portfolio
    Menu toggle · scroll reveals · page-transition loader
    ===================================================================== */
 (function () {
