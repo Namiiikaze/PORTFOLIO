@@ -12,6 +12,15 @@
   var loaderFill  = loader && loader.querySelector('.loader-fill');
   var loaderLabel = document.getElementById('loaderPercent');
 
+  // Only animate once per browser session, the first time someone enters the site.
+  var LOADER_SEEN_KEY = 'portfolioLoaderSeen';
+  var isFirstVisit;
+  try {
+    isFirstVisit = !sessionStorage.getItem(LOADER_SEEN_KEY);
+  } catch (err) {
+    isFirstVisit = true; // sessionStorage unavailable (e.g. privacy mode); default to showing it once
+  }
+
   var MIN_VISIBLE = 2200;   // ms for the count-up to climb 0 -> 100% (deliberately unhurried)
   var loaderPct   = 0;      // current displayed percentage
   var loaderStart = null;   // rAF timestamp of the first frame
@@ -45,8 +54,12 @@
     if (loader) loader.classList.add('is-hidden');
   }
 
+  function markLoaderSeen() {
+    try { sessionStorage.setItem(LOADER_SEEN_KEY, '1'); } catch (err) { /* ignore */ }
+  }
+
   function startLoader() {
-    if (!loader) return;
+    if (!loader || !isFirstVisit) return;
     if (loaderRAF) cancelAnimationFrame(loaderRAF);
     loaderPct = 0; loaderStart = null; pageLoaded = false;
     loader.classList.remove('is-hidden');
@@ -55,15 +68,22 @@
   }
 
   if (loader) {
-    if (document.readyState === 'complete') pageLoaded = true;
-    window.addEventListener('load', function () { pageLoaded = true; });
-    setTimeout(function () { pageLoaded = true; }, 6000);   // safety: never stall forever
-    loaderRAF = requestAnimationFrame(loaderFrame);
+    if (isFirstVisit) {
+      if (document.readyState === 'complete') pageLoaded = true;
+      window.addEventListener('load', function () { pageLoaded = true; });
+      setTimeout(function () { pageLoaded = true; }, 6000);   // safety: never stall forever
+      loaderRAF = requestAnimationFrame(loaderFrame);
+      markLoaderSeen();
+    } else {
+      loader.style.transition = 'none';   // hide instantly, no fade, on repeat visits
+      hideLoader();
+    }
   }
 
-  // Show the loader when navigating to another internal page
+  // Show the loader when navigating to another internal page (first visit only)
   document.querySelectorAll('a[href]').forEach(function (link) {
     link.addEventListener('click', function (e) {
+      if (!isFirstVisit) return;
       var href = link.getAttribute('href');
       // Skip: new-tab, modifier-clicks, anchors, mailto/tel, external links
       if (
