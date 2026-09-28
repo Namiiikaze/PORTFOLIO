@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -30,18 +30,30 @@
   <script>tailwind.config={darkMode:'class',theme:{extend:{fontFamily:{sans:['"Open Sans"','Arial','sans-serif']}}}}</script>
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body class="bg-white dark:bg-[#111111] text-[#050505] dark:text-[#f0f0ee] font-sans text-[18px] leading-[1.5] tracking-[-0.006em] antialiased">
+<body data-loader-entry class="bg-white dark:bg-[#111111] text-[#050505] dark:text-[#f0f0ee] font-sans text-[18px] leading-[1.5] tracking-[-0.006em] antialiased">
+
+  <div class="billie-floor" id="billieFloor" aria-hidden="true"><span class="billie-floor__tile"></span></div>
 
   <a class="skip-link bg-[#050505] dark:bg-[#f0f0ee] text-white dark:text-[#050505] px-4 py-[10px]" href="#work">Skip to work</a>
 
   <!-- Page loader -->
-  <div class="page-loader fixed inset-0 z-[200] bg-white dark:bg-[#111111] flex items-center justify-center opacity-100 visible transition-[opacity,visibility] duration-500" id="pageLoader" aria-hidden="true">
-    <div class="flex flex-col items-center gap-[14px]">
-      <span class="text-[0.72rem] font-medium uppercase tracking-[0.2em] tabular-nums text-[#6f6f6f] dark:text-[#888888]" id="loaderPercent">0%</span>
-      <div class="relative w-[130px] h-[2px] bg-[#e6e6e6] dark:bg-[#2a2a2a] overflow-hidden">
-        <span class="loader-fill bg-[#050505] dark:bg-[#f0f0ee]"></span>
-      </div>
+  <div class="page-loader" id="pageLoader" aria-hidden="true">
+    <div class="loader-stage">
+      <video class="loader-video" muted defaultMuted playsinline autoplay loop preload="auto">
+        <source src="assets/mj-moonwalk-full-silent.mp4" type="video/mp4" />
+      </video>
+      <span class="loader-video-flare" aria-hidden="true"></span>
     </div>
+    <div class="loader-copy"><span class="loader-kicker">The stage is set</span><span class="loader-name">Ayobami Shoyombo</span><span class="loader-percent" id="loaderPercent">0%</span></div>
+    <div class="loader-progress" aria-hidden="true"><span class="loader-fill"></span></div>
+    <div class="loader-steps" aria-hidden="true"><span></span><span></span><span></span></div>
+  </div>
+
+  <!-- This video is an interstitial sequence, not a portfolio card or a new UI control. -->
+  <div class="intro-sequence is-hidden" id="introSequence" aria-hidden="true">
+    <video class="intro-sequence__video" muted defaultMuted playsinline preload="auto">
+      <source src="assets/projects/motion-intro.mp4" type="video/mp4" />
+    </video>
   </div>
 
   <!-- HEADER -->

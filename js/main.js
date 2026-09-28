@@ -11,74 +11,143 @@
   var loader      = document.getElementById('pageLoader');
   var loaderFill  = loader && loader.querySelector('.loader-fill');
   var loaderLabel = document.getElementById('loaderPercent');
+  var loaderVideo = loader && loader.querySelector('.loader-video');
+  var introSequence = document.getElementById('introSequence');
+  var introVideo = introSequence && introSequence.querySelector('.intro-sequence__video');
 
-  // Only animate once per browser session, the first time someone enters the site.
-  var LOADER_SEEN_KEY = 'portfolioLoaderSeen';
-  var isFirstVisit;
-  try {
-    isFirstVisit = !sessionStorage.getItem(LOADER_SEEN_KEY);
-  } catch (err) {
-    isFirstVisit = true; // sessionStorage unavailable (e.g. privacy mode); default to showing it once
+  if (loaderVideo) {
+    loaderVideo.muted = true;
+    loaderVideo.defaultMuted = true;
+    loaderVideo.volume = 0;
+    loaderVideo.playbackRate = 1.1;
   }
 
-  var MIN_VISIBLE = 2200;   // ms for the count-up to climb 0 -> 100% (deliberately unhurried)
+  // The dance loader belongs only to the initial portfolio entry page.
+  var isFirstVisit = body.hasAttribute('data-loader-entry');
+
+  var LOADER_TIMELINE = 11370;
   var loaderPct   = 0;      // current displayed percentage
   var loaderStart = null;   // rAF timestamp of the first frame
-  var pageLoaded  = false;  // window 'load' has fired
   var loaderRAF   = null;
+  var loaderExitTimer = null;
+  var loaderRemoveTimer = null;
+  var introRemoveTimer = null;
+  var introFallbackTimer = null;
+  var entrySequenceStarted = false;
 
   function paintLoader(p) {
     var v = p < 0 ? 0 : p > 100 ? 100 : Math.round(p);
-    if (loaderFill)  loaderFill.style.width = v + '%';
+    if (loaderFill)  loaderFill.style.transform = 'scaleX(' + (v / 100) + ')';
     if (loaderLabel) loaderLabel.textContent = v + '%';
   }
 
   function loaderFrame(now) {
     if (loaderStart === null) loaderStart = now;
-    var t = Math.min(1, (now - loaderStart) / MIN_VISIBLE);
-    var eased = 1 - Math.pow(1 - t, 3);           // easeOutCubic
-    // Hold at 90% until the page has actually loaded, then let it finish to 100%.
-    var next = eased * (pageLoaded ? 100 : 90);
+    var t = Math.min(1, (now - loaderStart) / LOADER_TIMELINE);
+    var next = t * 100;
     if (next > loaderPct) loaderPct = next;
     paintLoader(loaderPct);
 
-    if (pageLoaded && loaderPct >= 100) {
+    if (t >= 1) {
       paintLoader(100);
-      setTimeout(hideLoader, 260);                // let 100% register before fading out
+      finishLoader();
       return;
     }
     loaderRAF = requestAnimationFrame(loaderFrame);
   }
 
   function hideLoader() {
-    if (loader) loader.classList.add('is-hidden');
+    if (!loader) return;
+    loader.classList.add('is-hidden');
+    if (loaderRemoveTimer) clearTimeout(loaderRemoveTimer);
+    loaderRemoveTimer = setTimeout(function () {
+      if (loader.classList.contains('is-hidden')) loader.style.display = 'none';
+    }, 220);
   }
 
-  function markLoaderSeen() {
-    try { sessionStorage.setItem(LOADER_SEEN_KEY, '1'); } catch (err) { /* ignore */ }
+  function hideIntroSequence() {
+    if (!introSequence) return;
+    if (introFallbackTimer) clearTimeout(introFallbackTimer);
+    introSequence.classList.add('is-hidden');
+    introSequence.setAttribute('aria-hidden', 'true');
+    if (introRemoveTimer) clearTimeout(introRemoveTimer);
+    introRemoveTimer = setTimeout(function () {
+      if (introSequence.classList.contains('is-hidden')) introSequence.style.display = 'none';
+    }, 720);
+  }
+
+  function startIntroSequence() {
+    if (!introSequence || !isFirstVisit) return;
+    if (introRemoveTimer) clearTimeout(introRemoveTimer);
+    introSequence.style.display = 'grid';
+    introSequence.classList.remove('is-hidden');
+    introSequence.setAttribute('aria-hidden', 'false');
+
+    if (!introVideo) {
+      hideIntroSequence();
+      return;
+    }
+
+    introVideo.muted = true;
+    introVideo.defaultMuted = true;
+    introVideo.volume = 0;
+    introVideo.currentTime = 0;
+    introVideo.play().catch(hideIntroSequence);
+
+    if (isFinite(introVideo.duration) && introVideo.duration > 0) {
+      introFallbackTimer = setTimeout(hideIntroSequence, (introVideo.duration * 1000) + 500);
+    }
+  }
+
+  function finishLoader() {
+    if (entrySequenceStarted) return;
+    entrySequenceStarted = true;
+    hideLoader();
+    // Allow the loader fade to complete before the intro motion takes over.
+    setTimeout(startIntroSequence, 220);
   }
 
   function startLoader() {
     if (!loader || !isFirstVisit) return;
     if (loaderRAF) cancelAnimationFrame(loaderRAF);
-    loaderPct = 0; loaderStart = null; pageLoaded = false;
+    if (loaderExitTimer) clearTimeout(loaderExitTimer);
+    if (loaderRemoveTimer) clearTimeout(loaderRemoveTimer);
+    loaderPct = 0; loaderStart = null;
+    loader.style.display = 'grid';
     loader.classList.remove('is-hidden');
+    if (loaderVideo) {
+      loaderVideo.currentTime = 0;
+      loaderVideo.playbackRate = 1.1;
+      loaderVideo.play().catch(function () {});
+    }
     paintLoader(0);
     loaderRAF = requestAnimationFrame(loaderFrame);
+    loaderExitTimer = setTimeout(function () {
+      paintLoader(100);
+      finishLoader();
+      if (loaderRAF) cancelAnimationFrame(loaderRAF);
+    }, LOADER_TIMELINE);
+  }
+
+  if (introVideo) {
+    introVideo.addEventListener('ended', hideIntroSequence);
+    introVideo.addEventListener('error', hideIntroSequence);
+    introVideo.addEventListener('loadedmetadata', function () {
+      if (!introSequence || introSequence.classList.contains('is-hidden') || !isFinite(introVideo.duration)) return;
+      if (introFallbackTimer) clearTimeout(introFallbackTimer);
+      introFallbackTimer = setTimeout(hideIntroSequence, (introVideo.duration * 1000) + 500);
+    });
   }
 
   if (loader) {
     if (isFirstVisit) {
-      if (document.readyState === 'complete') pageLoaded = true;
-      window.addEventListener('load', function () { pageLoaded = true; });
-      setTimeout(function () { pageLoaded = true; }, 6000);   // safety: never stall forever
-      loaderRAF = requestAnimationFrame(loaderFrame);
-      markLoaderSeen();
+      startLoader();
     } else {
-      loader.style.transition = 'none';   // hide instantly, no fade, on repeat visits
-      hideLoader();
+      loader.style.display = 'none';
     }
   }
+
+  if (introSequence && !isFirstVisit) introSequence.style.display = 'none';
 
   // Show the loader when navigating to another internal page (first visit only)
   document.querySelectorAll('a[href]').forEach(function (link) {
@@ -100,6 +169,57 @@
   window.addEventListener('pageshow', function (e) {
     if (e.persisted) hideLoader();
   });
+
+  /* ---------- Billie Jean hover floor ---------- */
+  var billieFloor = document.getElementById('billieFloor');
+  var billieTile = billieFloor && billieFloor.querySelector('.billie-floor__tile');
+  var activeFloorCell = '';
+  var queuedFloorCell = '';
+  var queuedFloorX = 0;
+  var queuedFloorY = 0;
+  var floorFadeTimer = null;
+  var isFloorFading = false;
+
+  function lightQueuedFloorCell() {
+    if (!billieTile || !queuedFloorCell) return;
+    billieTile.style.setProperty('--floor-x', queuedFloorX + 'px');
+    billieTile.style.setProperty('--floor-y', queuedFloorY + 'px');
+    activeFloorCell = queuedFloorCell;
+    queuedFloorCell = '';
+    isFloorFading = false;
+    requestAnimationFrame(function () {
+      billieTile.classList.add('is-lit');
+    });
+  }
+
+  function lightFloorCell(x, y) {
+    if (!billieTile) return;
+    var unit = billieTile.getBoundingClientRect().width || Math.max(48, Math.min(88, window.innerWidth * 0.05));
+    var floorX = Math.floor(x / unit) * unit;
+    var floorY = Math.floor(y / unit) * unit;
+    var cell = floorX + ':' + floorY;
+    if (cell === activeFloorCell || cell === queuedFloorCell) return;
+    queuedFloorCell = cell;
+    queuedFloorX = floorX;
+    queuedFloorY = floorY;
+
+    if (isFloorFading) return;
+
+    if (!billieTile.classList.contains('is-lit')) {
+      lightQueuedFloorCell();
+      return;
+    }
+
+    billieTile.classList.remove('is-lit');
+    activeFloorCell = '';
+    isFloorFading = true;
+    if (floorFadeTimer) clearTimeout(floorFadeTimer);
+    floorFadeTimer = setTimeout(lightQueuedFloorCell, 400);
+  }
+
+  document.addEventListener('pointermove', function (event) {
+    lightFloorCell(event.clientX, event.clientY);
+  }, { passive: true });
 
   /* ---------- Mobile menu ---------- */
   var toggle = document.getElementById('menuToggle');
