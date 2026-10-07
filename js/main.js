@@ -22,6 +22,49 @@
     loaderVideo.playbackRate = 1.1;
   }
 
+  // Sample the loader video frame to match the loader background exactly.
+  // Samples edge pixels (top-left corner of the video, which is the background wall, not MJ)
+  // and sets --loader-stage-background-sampled so CSS can use it seamlessly.
+  (function bindLoaderBgSampling(){
+    if(!loaderVideo) return;
+    var sampled=false;
+    function sampleLoaderBg(){
+      if(sampled) return;
+      try{
+        if(loaderVideo.readyState < 2 || !loaderVideo.videoWidth) return;
+        var c=document.createElement('canvas');
+        var w=16, h=16;
+        c.width=w; c.height=h;
+        var ctx=c.getContext('2d', {willReadFrequently:true});
+        if(!ctx) return;
+        // Draw video to small canvas — top-left corner where background is pure wall
+        ctx.drawImage(loaderVideo, 0, 0, w, h);
+        // Sample top-left 3x3 pixels (background wall)
+        var d=ctx.getImageData(0, 0, 3, 3).data;
+        var r=0,g=0,b=0,n=0;
+        for(var i=0;i<d.length;i+=4){
+          r+=d[i]; g+=d[i+1]; b+=d[i+2]; n++;
+        }
+        r=Math.round(r/n); g=Math.round(g/n); b=Math.round(b/n);
+        // Clamp to near-black (avoid sampling MJ's white outfit if timing is off)
+        // If sampled is too light (> 40), fallback to the dark edge expected value
+        var lum=0.2126*r+0.7152*g+0.0722*b;
+        if(lum > 45){ r=7; g=8; b=10; }
+        var hex='#'+[r,g,b].map(function(v){var h=v.toString(16);return h.length===1?'0'+h:h;}).join('');
+        document.documentElement.style.setProperty('--loader-stage-background-sampled', hex);
+        if(loader){ loader.style.setProperty('--loader-bg', hex); }
+        sampled=true;
+      }catch(e){}
+    }
+    loaderVideo.addEventListener('loadeddata', sampleLoaderBg, {once:true});
+    loaderVideo.addEventListener('canplay', sampleLoaderBg, {once:true});
+    // Retry shortly after playback starts (frame is stable after ~200ms)
+    loaderVideo.addEventListener('playing', function(){ setTimeout(sampleLoaderBg, 220); }, {once:true});
+    // Fallback: try after 600ms even if events missed
+    setTimeout(sampleLoaderBg, 650);
+  })();
+
+
   // The dance loader belongs only to the initial portfolio entry page.
   var isFirstVisit = body.hasAttribute('data-loader-entry');
 
@@ -296,18 +339,4 @@
     vids.forEach(function (v) { vio.observe(v); });
   }
 
-  /* ---------- Dark mode toggle ---------- */
-  function applyTheme(dark) {
-    document.documentElement.classList.toggle('dark', dark);
-    localStorage.theme = dark ? 'dark' : 'light';
-  }
-
-  ['themeToggle', 'themeToggleMob'].forEach(function (id) {
-    var btn = document.getElementById(id);
-    if (btn) {
-      btn.addEventListener('click', function () {
-        applyTheme(!document.documentElement.classList.contains('dark'));
-      });
-    }
-  });
 })();

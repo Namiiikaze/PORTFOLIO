@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Seil | Ayobami Shoyombo</title>
@@ -12,45 +12,36 @@
   <meta name="twitter:image" content="https://portfolio-three-pi-nk8lbiajdn.vercel.app/assets/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" />
-  <script>if(localStorage.theme==='dark'||(!('theme' in localStorage)&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}</script>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config={darkMode:'class',theme:{extend:{fontFamily:{sans:['"Open Sans"','Arial','sans-serif']}}}}</script>
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body class="bg-white dark:bg-[#111111] text-[#050505] dark:text-[#f0f0ee] font-sans text-[18px] leading-[1.5] tracking-[-0.006em] antialiased">
+<body class="bg-[#111111] text-[#f0f0ee] font-sans text-[18px] leading-[1.5] tracking-[-0.006em] antialiased">
   <a class="skip-link" href="#case">Skip to content</a>
-  <div class="page-loader fixed inset-0 z-[200] bg-white dark:bg-[#111111] flex items-center justify-center opacity-100 visible transition-[opacity,visibility] duration-500" id="pageLoader" aria-hidden="true">
+  <div class="page-loader fixed inset-0 z-[200] bg-[#111111] flex items-center justify-center opacity-100 visible transition-[opacity,visibility] duration-500" id="pageLoader" aria-hidden="true">
     <div class="flex flex-col items-center gap-[14px]">
-      <span class="text-[0.72rem] font-medium uppercase tracking-[0.2em] tabular-nums text-[#6f6f6f] dark:text-[#888888]" id="loaderPercent">0%</span>
-      <div class="relative w-[130px] h-[2px] bg-[#e6e6e6] dark:bg-[#2a2a2a] overflow-hidden"><span class="loader-fill bg-[#050505] dark:bg-[#f0f0ee]"></span></div>
+      <span class="text-[0.72rem] font-medium uppercase tracking-[0.2em] tabular-nums text-[#888888]" id="loaderPercent">0%</span>
+      <div class="relative w-[130px] h-[2px] bg-[#2a2a2a] overflow-hidden"><span class="loader-fill bg-[#f0f0ee]"></span></div>
     </div>
   </div>
-  <header class="bg-[#f7f7f7] dark:bg-[#1c1c1c]" id="top">
+  <header class="bg-[#1c1c1c]" id="top">
     <div class="flex flex-col items-center gap-[15px] py-[clamp(34px,6vh,58px)] px-[clamp(20px,5vw,80px)] max-w-[1680px] mx-auto max-[820px]:flex-row max-[820px]:justify-between max-[820px]:items-center max-[820px]:py-4">
       <a class="text-[clamp(1.15rem,0.9rem+0.7vw,1.4rem)] uppercase tracking-[0.13em] whitespace-nowrap max-[820px]:text-[0.95rem]" href="index.html">AYOBAMI SHOYOMBO</a>
       <div class="flex items-center gap-[clamp(26px,3.4vw,50px)] max-[820px]:hidden">
         <nav class="flex gap-[clamp(26px,3.4vw,50px)]" aria-label="Primary">
-          <a class="text-[0.9rem] text-[#6f6f6f] dark:text-[#888888] hover:text-[#050505] dark:hover:text-[#f0f0ee] transition-colors duration-[250ms]" href="work.html" aria-current="page">Work</a>
-          <a class="text-[0.9rem] text-[#6f6f6f] dark:text-[#888888] hover:text-[#050505] dark:hover:text-[#f0f0ee] transition-colors duration-[250ms]" href="about.html">About</a>
+          <a class="text-[0.9rem] text-[#888888] hover:text-[#f0f0ee] transition-colors duration-[250ms]" href="work.html" aria-current="page">Work</a>
+          <a class="text-[0.9rem] text-[#888888] hover:text-[#f0f0ee] transition-colors duration-[250ms]" href="about.html">About</a>
         </nav>
-        <button id="themeToggle" aria-label="Toggle dark mode" class="text-[#6f6f6f] dark:text-[#888888] hover:text-[#050505] dark:hover:text-[#f0f0ee] transition-colors duration-[250ms] leading-none">
-          <svg class="dark:hidden" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          <svg class="hidden dark:block" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-        </button>
-      </div>
+              </div>
       <div class="hidden max-[820px]:flex items-center gap-3">
-        <button id="themeToggleMob" aria-label="Toggle dark mode" class="text-[#050505] dark:text-[#f0f0ee] leading-none">
-          <svg class="dark:hidden" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          <svg class="hidden dark:block" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-        </button>
-        <button class="w-[34px] h-[34px] relative z-[2]" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-          <span class="bar-top absolute left-[6px] w-[22px] h-[1.5px] bg-[#050505] dark:bg-[#f0f0ee] transition-transform duration-[350ms]" style="top:13px"></span>
-          <span class="bar-bot absolute left-[6px] w-[22px] h-[1.5px] bg-[#050505] dark:bg-[#f0f0ee] transition-transform duration-[350ms]" style="top:20px"></span>
+                <button class="w-[34px] h-[34px] relative z-[2]" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="bar-top absolute left-[6px] w-[22px] h-[1.5px] bg-[#f0f0ee] transition-transform duration-[350ms]" style="top:13px"></span>
+          <span class="bar-bot absolute left-[6px] w-[22px] h-[1.5px] bg-[#f0f0ee] transition-transform duration-[350ms]" style="top:20px"></span>
         </button>
       </div>
     </div>
   </header>
-  <div class="fixed inset-0 bg-[#f7f7f7] dark:bg-[#1c1c1c] z-40 flex items-center justify-center px-[clamp(20px,5vw,80px)] opacity-0 invisible transition-[opacity,visibility] duration-[400ms]" id="mobileMenu" aria-hidden="true">
+  <div class="fixed inset-0 bg-[#1c1c1c] z-40 flex items-center justify-center px-[clamp(20px,5vw,80px)] opacity-0 invisible transition-[opacity,visibility] duration-[400ms]" id="mobileMenu" aria-hidden="true">
     <nav class="flex flex-col items-center text-center gap-[10px]" aria-label="Mobile">
       <a class="mobile-link text-[clamp(2.2rem,10vw,3.1rem)] leading-[1.2] opacity-0 translate-y-[14px] transition-[opacity,transform] duration-[400ms] [transition-delay:100ms]" href="work.html">Work</a>
       <a class="mobile-link text-[clamp(2.2rem,10vw,3.1rem)] leading-[1.2] opacity-0 translate-y-[14px] transition-[opacity,transform] duration-[400ms] [transition-delay:160ms]" href="about.html">About</a>
@@ -59,56 +50,66 @@
   <main>
     <article class="px-[clamp(20px,5vw,80px)] pb-[clamp(56px,10vh,120px)]" id="case">
       <div class="max-w-[1120px] mx-auto">
-        <a class="group inline-flex items-center gap-2 text-[0.9rem] text-[#6f6f6f] dark:text-[#888888] pt-[clamp(26px,5vh,52px)] pb-[clamp(30px,6vh,60px)] hover:text-[#050505] dark:hover:text-[#f0f0ee] transition-colors duration-[250ms]" href="work.html">
+        <a class="group inline-flex items-center gap-2 text-[0.9rem] text-[#888888] pt-[clamp(26px,5vh,52px)] pb-[clamp(30px,6vh,60px)] hover:text-[#f0f0ee] transition-colors duration-[250ms]" href="work.html">
           <svg class="w-[15px] h-[15px] group-hover:-translate-x-[3px] transition-transform duration-[250ms]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 6l-6 6 6 6" /></svg>Work
         </a>
-        <p class="reveal text-[0.78rem] font-medium uppercase tracking-[0.14em] text-[#b9b9b9] dark:text-[#555555] mb-[clamp(14px,2vh,20px)]">Internship</p>
+        <p class="reveal text-[0.78rem] font-medium uppercase tracking-[0.14em] text-[#555555] mb-[clamp(14px,2vh,20px)]">Internship</p>
         <h1 class="reveal text-[clamp(2.1rem,1.2rem+3.4vw,3.7rem)] font-semibold leading-[1.04] tracking-[-0.025em] mb-[clamp(16px,2.6vh,26px)]">Seil</h1>
-        <p class="reveal text-[clamp(1.15rem,1rem+0.7vw,1.5rem)] leading-[1.4] text-[#6f6f6f] dark:text-[#888888] max-w-[32em]">A marketing funnel tool that hands any business a working funnel in a single session, then guides them through running it, one week at a time.</p>
-        <dl class="reveal flex flex-wrap gap-[clamp(26px,5vw,70px)] mt-[clamp(30px,5vh,52px)] pt-[clamp(26px,4vh,40px)] pb-[clamp(26px,4vh,40px)] border-t border-b border-[#e6e6e6] dark:border-[#2a2a2a]">
-          <div><dt class="text-[0.72rem] uppercase tracking-[0.13em] text-[#b9b9b9] dark:text-[#555555] mb-[7px]">Role</dt><dd class="text-[1rem]">Product Design</dd></div>
-          <div><dt class="text-[0.72rem] uppercase tracking-[0.13em] text-[#b9b9b9] dark:text-[#555555] mb-[7px]">Platform</dt><dd class="text-[1rem]">Web app</dd></div>
-          <div><dt class="text-[0.72rem] uppercase tracking-[0.13em] text-[#b9b9b9] dark:text-[#555555] mb-[7px]">Focus</dt><dd class="text-[1rem]">Onboarding &amp; guided funnels</dd></div>
+        <p class="reveal text-[clamp(1.15rem,1rem+0.7vw,1.5rem)] leading-[1.4] text-[#888888] max-w-[32em]">A marketing funnel tool that hands any business a working funnel in a single session, then guides them through running it, one week at a time.</p>
+        <dl class="reveal flex flex-wrap gap-[clamp(26px,5vw,70px)] mt-[clamp(30px,5vh,52px)] pt-[clamp(26px,4vh,40px)] pb-[clamp(26px,4vh,40px)] border-t border-b border-[#2a2a2a]">
+          <div><dt class="text-[0.72rem] uppercase tracking-[0.13em] text-[#555555] mb-[7px]">Role</dt><dd class="text-[1rem]">Product Design</dd></div>
+          <div><dt class="text-[0.72rem] uppercase tracking-[0.13em] text-[#555555] mb-[7px]">Platform</dt><dd class="text-[1rem]">Web app</dd></div>
+          <div><dt class="text-[0.72rem] uppercase tracking-[0.13em] text-[#555555] mb-[7px]">Focus</dt><dd class="text-[1rem]">Onboarding &amp; guided funnels</dd></div>
         </dl>
-        <figure class="reveal bg-[#f2f2f0] dark:bg-[#1e1e1e] rounded-[4px] overflow-hidden my-[clamp(30px,6vh,64px)]">
+        <figure class="reveal bg-[#1e1e1e] rounded-[4px] overflow-hidden my-[clamp(30px,6vh,64px)]">
           <img src="assets/SEIL/FLOWBRAND_2-DcH7n394.png" alt="Seil admin dashboard showing active users, weekly sign-ups, stage progress and recent feedback" loading="lazy" class="w-full h-auto block" />
-          <figcaption class="text-[0.85rem] leading-[1.45] text-[#b9b9b9] dark:text-[#555555] px-[clamp(16px,2vw,24px)] py-[14px]">Admin dashboard: cohort health, weekly sign-ups and stage progress at a glance, in light and dark.</figcaption>
+          <figcaption class="text-[0.85rem] leading-[1.45] text-[#555555] px-[clamp(16px,2vw,24px)] py-[14px]">Admin dashboard: cohort health, weekly sign-ups and stage progress at a glance, in light and dark.</figcaption>
         </figure>
         <section class="pt-[clamp(34px,6vh,64px)]">
-          <h2 class="reveal text-[0.78rem] font-medium uppercase tracking-[0.14em] text-[#b9b9b9] dark:text-[#555555] pb-[clamp(16px,2.6vh,26px)] mb-[clamp(22px,3.5vh,36px)] border-b border-[#e6e6e6] dark:border-[#2a2a2a]">Overview</h2>
+          <h2 class="reveal text-[0.78rem] font-medium uppercase tracking-[0.14em] text-[#555555] pb-[clamp(16px,2.6vh,26px)] mb-[clamp(22px,3.5vh,36px)] border-b border-[#2a2a2a]">Overview</h2>
           <p class="reveal text-[clamp(1.06rem,1rem+0.4vw,1.32rem)] leading-[1.55] max-w-[38em]">Seil is a marketing funnel tool designed for local and large businesses to gather potential leads and generate sales. It gives any business, regardless of their marketing knowledge, a structured, working marketing funnel in a single session, and then guides them through running it every week.</p>
         </section>
         <section class="pt-[clamp(34px,6vh,64px)]">
-          <h2 class="reveal text-[0.78rem] font-medium uppercase tracking-[0.14em] text-[#b9b9b9] dark:text-[#555555] pb-[clamp(16px,2.6vh,26px)] mb-[clamp(22px,3.5vh,36px)] border-b border-[#e6e6e6] dark:border-[#2a2a2a]">Project objectives</h2>
+          <h2 class="reveal text-[0.78rem] font-medium uppercase tracking-[0.14em] text-[#555555] pb-[clamp(16px,2.6vh,26px)] mb-[clamp(22px,3.5vh,36px)] border-b border-[#2a2a2a]">Project objectives</h2>
           <ol class="reveal list-none max-w-[44em]">
-            <li class="grid grid-cols-[2.4em_1fr] gap-[clamp(14px,2vw,26px)] py-[clamp(18px,2.8vh,28px)] border-t border-[#e6e6e6] dark:border-[#2a2a2a]"><span class="text-[0.95rem] text-[#b9b9b9] dark:text-[#555555] pt-[0.2em]">01</span><span class="text-[clamp(1.02rem,0.98rem+0.35vw,1.22rem)] leading-[1.5]">See a generated funnel that is specific to the customer's business type and situation.</span></li>
-            <li class="grid grid-cols-[2.4em_1fr] gap-[clamp(14px,2vw,26px)] py-[clamp(18px,2.8vh,28px)] border-t border-[#e6e6e6] dark:border-[#2a2a2a]"><span class="text-[0.95rem] text-[#b9b9b9] dark:text-[#555555] pt-[0.2em]">02</span><span class="text-[clamp(1.02rem,0.98rem+0.35vw,1.22rem)] leading-[1.5]">Understand what each funnel stage means, without needing to know marketing terminology.</span></li>
-            <li class="grid grid-cols-[2.4em_1fr] gap-[clamp(14px,2vw,26px)] py-[clamp(18px,2.8vh,28px)] border-t border-[#e6e6e6] dark:border-[#2a2a2a]"><span class="text-[0.95rem] text-[#b9b9b9] dark:text-[#555555] pt-[0.2em]">03</span><span class="text-[clamp(1.02rem,0.98rem+0.35vw,1.22rem)] leading-[1.5]">Know exactly what action to take this week for the stage they're currently on.</span></li>
-            <li class="grid grid-cols-[2.4em_1fr] gap-[clamp(14px,2vw,26px)] py-[clamp(18px,2.8vh,28px)] border-t border-[#e6e6e6] dark:border-[#2a2a2a]"><span class="text-[0.95rem] text-[#b9b9b9] dark:text-[#555555] pt-[0.2em]">04</span><span class="text-[clamp(1.02rem,0.98rem+0.35vw,1.22rem)] leading-[1.5]">Save their progress and come back later without losing the funnel.</span></li>
-            <li class="grid grid-cols-[2.4em_1fr] gap-[clamp(14px,2vw,26px)] py-[clamp(18px,2.8vh,28px)] border-t border-b border-[#e6e6e6] dark:border-[#2a2a2a]"><span class="text-[0.95rem] text-[#b9b9b9] dark:text-[#555555] pt-[0.2em]">05</span><span class="text-[clamp(1.02rem,0.98rem+0.35vw,1.22rem)] leading-[1.5]">See a simple summary of how their funnel is performing over time.</span></li>
+            <li class="grid grid-cols-[2.4em_1fr] gap-[clamp(14px,2vw,26px)] py-[clamp(18px,2.8vh,28px)] border-t border-[#2a2a2a]"><span class="text-[0.95rem] text-[#555555] pt-[0.2em]">01</span><span class="text-[clamp(1.02rem,0.98rem+0.35vw,1.22rem)] leading-[1.5]">See a generated funnel that is specific to the customer's business type and situation.</span></li>
+            <li class="grid grid-cols-[2.4em_1fr] gap-[clamp(14px,2vw,26px)] py-[clamp(18px,2.8vh,28px)] border-t border-[#2a2a2a]"><span class="text-[0.95rem] text-[#555555] pt-[0.2em]">02</span><span class="text-[clamp(1.02rem,0.98rem+0.35vw,1.22rem)] leading-[1.5]">Understand what each funnel stage means, without needing to know marketing terminology.</span></li>
+            <li class="grid grid-cols-[2.4em_1fr] gap-[clamp(14px,2vw,26px)] py-[clamp(18px,2.8vh,28px)] border-t border-[#2a2a2a]"><span class="text-[0.95rem] text-[#555555] pt-[0.2em]">03</span><span class="text-[clamp(1.02rem,0.98rem+0.35vw,1.22rem)] leading-[1.5]">Know exactly what action to take this week for the stage they're currently on.</span></li>
+            <li class="grid grid-cols-[2.4em_1fr] gap-[clamp(14px,2vw,26px)] py-[clamp(18px,2.8vh,28px)] border-t border-[#2a2a2a]"><span class="text-[0.95rem] text-[#555555] pt-[0.2em]">04</span><span class="text-[clamp(1.02rem,0.98rem+0.35vw,1.22rem)] leading-[1.5]">Save their progress and come back later without losing the funnel.</span></li>
+            <li class="grid grid-cols-[2.4em_1fr] gap-[clamp(14px,2vw,26px)] py-[clamp(18px,2.8vh,28px)] border-t border-b border-[#2a2a2a]"><span class="text-[0.95rem] text-[#555555] pt-[0.2em]">05</span><span class="text-[clamp(1.02rem,0.98rem+0.35vw,1.22rem)] leading-[1.5]">See a simple summary of how their funnel is performing over time.</span></li>
           </ol>
         </section>
         <section class="pt-[clamp(34px,6vh,64px)]">
-          <h2 class="reveal text-[0.78rem] font-medium uppercase tracking-[0.14em] text-[#b9b9b9] dark:text-[#555555] pb-[clamp(16px,2.6vh,26px)] mb-[clamp(22px,3.5vh,36px)] border-b border-[#e6e6e6] dark:border-[#2a2a2a]">Screens</h2>
+          <h2 class="reveal text-[0.78rem] font-medium uppercase tracking-[0.14em] text-[#555555] pb-[clamp(16px,2.6vh,26px)] mb-[clamp(22px,3.5vh,36px)] border-b border-[#2a2a2a]">Screens</h2>
           <div class="mt-[clamp(26px,4vh,44px)] grid gap-[clamp(16px,3vh,34px)]">
-            <figure class="bg-[#f2f2f0] dark:bg-[#1e1e1e] rounded-[4px] overflow-hidden"><img src="assets/SEIL/FLOWBRAND_3-gY8p2SwI.png" alt="Seil funnel view with stages explained and weekly tasks" loading="lazy" class="w-full h-auto block" /><figcaption class="text-[0.85rem] leading-[1.45] text-[#b9b9b9] dark:text-[#555555] px-[clamp(16px,2vw,24px)] py-[14px]">The funnel view: every stage explained in plain language, with the exact tasks to run this week.</figcaption></figure>
-            <figure class="bg-[#f2f2f0] dark:bg-[#1e1e1e] rounded-[4px] overflow-hidden"><img src="assets/SEIL/18.png" alt="Seil sign-up screen" loading="lazy" class="w-full h-auto block" /><figcaption class="text-[0.85rem] leading-[1.45] text-[#b9b9b9] dark:text-[#555555] px-[clamp(16px,2vw,24px)] py-[14px]">Getting started: "Marketing strategies, made human," built for people with no marketing experience.</figcaption></figure>
+            <figure class="bg-[#1e1e1e] rounded-[4px] overflow-hidden"><img src="assets/SEIL/FLOWBRAND_3-gY8p2SwI.png" alt="Seil funnel view with stages explained and weekly tasks" loading="lazy" class="w-full h-auto block" /><figcaption class="text-[0.85rem] leading-[1.45] text-[#555555] px-[clamp(16px,2vw,24px)] py-[14px]">The funnel view: every stage explained in plain language, with the exact tasks to run this week.</figcaption></figure>
+            <figure class="bg-[#1e1e1e] rounded-[4px] overflow-hidden"><img src="assets/SEIL/18.png" alt="Seil sign-up screen" loading="lazy" class="w-full h-auto block" /><figcaption class="text-[0.85rem] leading-[1.45] text-[#555555] px-[clamp(16px,2vw,24px)] py-[14px]">Getting started: "Marketing strategies, made human," built for people with no marketing experience.</figcaption></figure>
           </div>
         </section>
-        <a class="group flex items-center justify-between gap-5 flex-wrap mt-[clamp(52px,9vh,110px)] pt-[clamp(28px,5vh,48px)] border-t border-[#e6e6e6] dark:border-[#2a2a2a]" href="nconnect.html">
-          <div><p class="text-[0.78rem] uppercase tracking-[0.14em] text-[#b9b9b9] dark:text-[#555555] mb-[10px]">Next project</p><p class="text-[clamp(1.6rem,1rem+2.4vw,2.6rem)] font-semibold tracking-[-0.02em] group-hover:text-[#6f6f6f] dark:group-hover:text-[#888888] transition-colors duration-[250ms]">NConnect</p></div>
-          <span class="self-end text-[#b9b9b9] dark:text-[#555555] group-hover:translate-x-[4px] group-hover:text-[#050505] dark:group-hover:text-[#f0f0ee] transition-[transform,color] duration-[250ms]"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+        <a class="group flex items-center justify-between gap-5 flex-wrap mt-[clamp(52px,9vh,110px)] pt-[clamp(28px,5vh,48px)] border-t border-[#2a2a2a]" href="nconnect.html">
+          <div><p class="text-[0.78rem] uppercase tracking-[0.14em] text-[#555555] mb-[10px]">Next project</p><p class="text-[clamp(1.6rem,1rem+2.4vw,2.6rem)] font-semibold tracking-[-0.02em] group-hover:text-[#6f6f6f] dark:group-hover:text-[#888888] transition-colors duration-[250ms]">NConnect</p></div>
+          <span class="self-end text-[#555555] group-hover:translate-x-[4px] group-hover:text-[#050505] dark:group-hover:text-[#f0f0ee] transition-[transform,color] duration-[250ms]"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
         </a>
       </div>
     </article>
   </main>
-  <footer class="border-t border-[#e6e6e6] dark:border-[#2a2a2a] py-[clamp(28px,5vh,44px)]">
-    <div class="flex items-center justify-between gap-5 flex-wrap px-[clamp(20px,5vw,80px)] max-w-[1680px] mx-auto">
-      <span class="text-[0.94rem] text-[#6f6f6f] dark:text-[#888888]">© 2026 Ayobami Shoyombo</span>
-      <nav class="flex items-center gap-[clamp(16px,2.2vw,24px)]" aria-label="Social">
-        <a href="https://wa.me/2349131673055" target="_blank" rel="noopener" aria-label="WhatsApp" class="inline-flex items-center justify-center hover:text-[#6f6f6f] dark:hover:text-[#888888] hover:-translate-y-[2px] transition-[color,transform] duration-[250ms]"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
-        <a href="https://www.linkedin.com/in/ayobami-shoyombo-918533276/" target="_blank" rel="noopener" aria-label="LinkedIn" class="inline-flex items-center justify-center hover:text-[#6f6f6f] dark:hover:text-[#888888] hover:-translate-y-[2px] transition-[color,transform] duration-[250ms]"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.8 0 0 .78 0 1.73v20.54C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .78 23.2 0 22.22 0Z"/></svg></a>
-        <a href="https://x.com/kazeUI_UX" target="_blank" rel="noopener" aria-label="X (formerly Twitter)" class="inline-flex items-center justify-center hover:text-[#6f6f6f] dark:hover:text-[#888888] hover:-translate-y-[2px] transition-[color,transform] duration-[250ms]"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg></a>
+    <!-- FOOTER — Ideogram MJ toe-stand watermark -->
+  <footer class="site-footer--mj">
+    <div class="footer-mj-watermark" aria-hidden="true">
+      <img src="assets/mj-toe-stand.jpg" alt="" loading="lazy" decoding="async" />
+    </div>
+    <div class="footer-main">
+      <span class="footer-copy-pill">© 2026 Ayobami Shoyombo</span>
+      <nav class="footer-links-pill" aria-label="Social">
+        <a href="https://wa.me/2349131673055" target="_blank" rel="noopener" aria-label="WhatsApp" class="inline-flex items-center justify-center hover:text-[#888888] hover:-translate-y-[2px] transition-[color,transform] duration-[250ms]">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/ayobami-shoyombo-918533276/" target="_blank" rel="noopener" aria-label="LinkedIn" class="inline-flex items-center justify-center hover:text-[#888888] hover:-translate-y-[2px] transition-[color,transform] duration-[250ms]">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.8 0 0 .78 0 1.73v20.54C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .78 23.2 0 22.22 0Z"/></svg>
+        </a>
+        <a href="https://x.com/kazeUI_UX" target="_blank" rel="noopener" aria-label="X (formerly Twitter)" class="inline-flex items-center justify-center hover:text-[#888888] hover:-translate-y-[2px] transition-[color,transform] duration-[250ms]">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
+        </a>
       </nav>
     </div>
   </footer>

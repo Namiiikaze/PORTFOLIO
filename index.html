@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,16 +25,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" />
-  <script>if(localStorage.theme==='dark'||(!('theme' in localStorage)&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}</script>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config={darkMode:'class',theme:{extend:{fontFamily:{sans:['"Open Sans"','Arial','sans-serif']}}}}</script>
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body data-loader-entry class="bg-white dark:bg-[#111111] text-[#050505] dark:text-[#f0f0ee] font-sans text-[18px] leading-[1.5] tracking-[-0.006em] antialiased">
+<body data-loader-entry class="bg-[#111111] text-[#f0f0ee] font-sans text-[18px] leading-[1.5] tracking-[-0.006em] antialiased">
 
   <div class="billie-floor" id="billieFloor" aria-hidden="true"><span class="billie-floor__tile"></span></div>
 
-  <a class="skip-link bg-[#050505] dark:bg-[#f0f0ee] text-white dark:text-[#050505] px-4 py-[10px]" href="#work">Skip to work</a>
+  <a class="skip-link bg-[#f0f0ee] text-[#050505] px-4 py-[10px]" href="#work">Skip to work</a>
 
   <!-- Page loader -->
   <div class="page-loader" id="pageLoader" aria-hidden="true">
@@ -57,34 +56,26 @@
   </div>
 
   <!-- HEADER -->
-  <header class="bg-[#f7f7f7] dark:bg-[#1c1c1c]" id="top">
+  <header class="bg-[#1c1c1c]" id="top">
     <div class="flex flex-col items-center gap-[15px] py-[clamp(34px,6vh,58px)] px-[clamp(20px,5vw,80px)] max-w-[1680px] mx-auto max-[820px]:flex-row max-[820px]:justify-between max-[820px]:items-center max-[820px]:py-4">
       <a class="text-[clamp(1.15rem,0.9rem+0.7vw,1.4rem)] uppercase tracking-[0.13em] whitespace-nowrap max-[820px]:text-[0.95rem] max-[820px]:tracking-[0.1em]" href="#top">AYOBAMI SHOYOMBO</a>
       <div class="flex items-center gap-[clamp(26px,3.4vw,50px)] max-[820px]:hidden">
         <nav class="flex gap-[clamp(26px,3.4vw,50px)]" aria-label="Primary">
-          <a class="text-[0.9rem] text-[#6f6f6f] dark:text-[#888888] hover:text-[#050505] dark:hover:text-[#f0f0ee] transition-colors duration-[250ms]" href="work.html">Work</a>
-          <a class="text-[0.9rem] text-[#6f6f6f] dark:text-[#888888] hover:text-[#050505] dark:hover:text-[#f0f0ee] transition-colors duration-[250ms]" href="about.html">About</a>
+          <a class="text-[0.9rem] text-[#888888] hover:text-[#f0f0ee] transition-colors duration-[250ms]" href="work.html">Work</a>
+          <a class="text-[0.9rem] text-[#888888] hover:text-[#f0f0ee] transition-colors duration-[250ms]" href="about.html">About</a>
         </nav>
-        <button id="themeToggle" aria-label="Toggle dark mode" class="text-[#6f6f6f] dark:text-[#888888] hover:text-[#050505] dark:hover:text-[#f0f0ee] transition-colors duration-[250ms] leading-none">
-          <svg class="dark:hidden" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          <svg class="hidden dark:block" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-        </button>
-      </div>
+              </div>
       <div class="hidden max-[820px]:flex items-center gap-3">
-        <button id="themeToggleMob" aria-label="Toggle dark mode" class="text-[#050505] dark:text-[#f0f0ee] leading-none">
-          <svg class="dark:hidden" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          <svg class="hidden dark:block" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-        </button>
-        <button class="w-[34px] h-[34px] relative z-[2]" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-          <span class="bar-top absolute left-[6px] w-[22px] h-[1.5px] bg-[#050505] dark:bg-[#f0f0ee] transition-transform duration-[350ms]" style="top:13px"></span>
-          <span class="bar-bot absolute left-[6px] w-[22px] h-[1.5px] bg-[#050505] dark:bg-[#f0f0ee] transition-transform duration-[350ms]" style="top:20px"></span>
+                <button class="w-[34px] h-[34px] relative z-[2]" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="bar-top absolute left-[6px] w-[22px] h-[1.5px] bg-[#f0f0ee] transition-transform duration-[350ms]" style="top:13px"></span>
+          <span class="bar-bot absolute left-[6px] w-[22px] h-[1.5px] bg-[#f0f0ee] transition-transform duration-[350ms]" style="top:20px"></span>
         </button>
       </div>
     </div>
   </header>
 
   <!-- MOBILE MENU -->
-  <div class="fixed inset-0 bg-[#f7f7f7] dark:bg-[#1c1c1c] z-40 flex items-center justify-center px-[clamp(20px,5vw,80px)] opacity-0 invisible transition-[opacity,visibility] duration-[400ms]" id="mobileMenu" aria-hidden="true">
+  <div class="fixed inset-0 bg-[#1c1c1c] z-40 flex items-center justify-center px-[clamp(20px,5vw,80px)] opacity-0 invisible transition-[opacity,visibility] duration-[400ms]" id="mobileMenu" aria-hidden="true">
     <nav class="flex flex-col items-center text-center gap-[10px]" aria-label="Mobile">
       <a class="mobile-link text-[clamp(2.2rem,10vw,3.1rem)] leading-[1.2] opacity-0 translate-y-[14px] transition-[opacity,transform] duration-[400ms] [transition-delay:100ms]" href="work.html">Work</a>
       <a class="mobile-link text-[clamp(2.2rem,10vw,3.1rem)] leading-[1.2] opacity-0 translate-y-[14px] transition-[opacity,transform] duration-[400ms] [transition-delay:160ms]" href="about.html">About</a>
@@ -106,54 +97,95 @@
     <!-- WORK -->
     <section class="px-[clamp(20px,5vw,80px)] pb-[clamp(40px,8vh,90px)] max-w-[1680px] mx-auto" id="work">
 
+      <!-- Current Project: Donum -->
+      <div class="pb-[clamp(46px,8vh,96px)]">
+        <div class="reveal flex flex-wrap items-end justify-between gap-3 pb-[clamp(20px,3vh,34px)] border-b border-[#2a2a2a] mb-[clamp(28px,4vh,46px)]">
+          <h2 class="text-[0.78rem] font-medium uppercase tracking-[0.14em] text-[#555555]">Current Project</h2>
+          <span class="text-[0.74rem] font-medium tracking-[0.08em] uppercase text-[#8a8a8a] dark:text-[#777]">Now building · Founder</span>
+        </div>
+        <div class="group">
+          <div class="grid lg:grid-cols-[1.35fr_0.9fr] gap-[clamp(24px,3vw,48px)] items-start">
+            <div class="project__media relative aspect-[16/10] bg-[#FFF6D6] dark:bg-[#1e1e1e] overflow-hidden rounded-[2px] border border-[#f0e6c2] dark:border-transparent">
+              <video class="w-full h-full object-cover" muted loop playsinline autoplay preload="metadata" poster="assets/Donum/TWITTER POST.png">
+                <source src="assets/Donum/Donum-coming-soon-v2.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="pt-[6px]">
+              <div class="inline-flex items-center gap-2 mb-3">
+                <span class="inline-flex items-center rounded-full bg-[#111111] dark:bg-[#f0f0ee] text-white dark:text-[#111111] text-[0.68rem] font-semibold tracking-[0.08em] uppercase px-[10px] py-[5px]">In progress</span>
+                <span class="text-[0.78rem] text-[#8a8a8a] dark:text-[#888]">2026 · Startup</span>
+              </div>
+              <h3 class="reveal text-[clamp(1.35rem,1rem+1.2vw,1.85rem)] font-semibold tracking-[-0.02em] leading-[1.15]">Donum</h3>
+              <p class="reveal text-[0.95rem] font-medium tracking-[0.06em] uppercase text-[#9a8a5a] dark:text-[#c2b48a] mt-1">Gift with intention</p>
+              <p class="reveal text-[1.02rem] leading-[1.65] text-[#3a3a3a] dark:text-[#b8b8b8] mt-4">My startup is a thoughtful gifting companion that helps you remember the people that matter, keep their stories, and find gifts that feel truly personal. Gift profiles, occasion reminders, and curated picks so you never miss a moment.</p>
+              <ul class="reveal mt-5 flex flex-wrap gap-2">
+                <li class="text-[0.76rem] tracking-[0.02em] bg-[#FFF6D6] dark:bg-[#252525] border border-[#2a2a2a] rounded-full px-3 py-[6px]">Gift Profiles</li>
+                <li class="text-[0.76rem] tracking-[0.02em] bg-[#FFF6D6] dark:bg-[#252525] border border-[#2a2a2a] rounded-full px-3 py-[6px]">Occasion Tracking</li>
+                <li class="text-[0.76rem] tracking-[0.02em] bg-[#FFF6D6] dark:bg-[#252525] border border-[#2a2a2a] rounded-full px-3 py-[6px]">Curated Picks</li>
+              </ul>
+              <p class="reveal text-[0.84rem] text-[#888888] mt-6">Designing in Figma · building towards launch. Gallery below.</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-[clamp(16px,2vw,28px)] mt-[clamp(22px,3vw,32px)] max-[640px]:grid-cols-1">
+            <div class="project__media relative aspect-[4/3] bg-[#1e1e1e] overflow-hidden rounded-[2px] border border-[#2a2a2a]">
+              <img src="assets/Donum/TWITTER POST.png" alt="Donum product screens showing Gift Profile for Maya Chen with upcoming occasions and curated picks" loading="lazy" class="w-full h-full object-cover" />
+            </div>
+            <div class="project__media relative aspect-[4/3] bg-[#FFF6D6] dark:bg-[#1e1e1e] overflow-hidden rounded-[2px] border border-[#2a2a2a] p-[clamp(14px,2vw,22px)] flex items-center justify-center">
+              <img src="assets/Donum/Frame 28.png" alt="Donum gift profile card for Maya Chen, Partner, 4 years together" loading="lazy" class="w-full h-full object-contain" />
+            </div>
+          </div>
+          <p class="reveal text-[0.82rem] text-[#888888] mt-4">Donum turns gifting from last-minute stress into a thoughtful ritual.</p>
+        </div>
+      </div>
+
       <!-- Live Projects -->
       <div class="pb-[clamp(46px,8vh,96px)]">
-        <h2 class="reveal text-[0.78rem] font-medium uppercase tracking-[0.14em] text-[#b9b9b9] dark:text-[#555555] pb-[clamp(20px,3vh,34px)] border-b border-[#e6e6e6] dark:border-[#2a2a2a] mb-[clamp(28px,4vh,46px)]">Live Projects</h2>
+        <h2 class="reveal text-[0.78rem] font-medium uppercase tracking-[0.14em] text-[#555555] pb-[clamp(20px,3vh,34px)] border-b border-[#2a2a2a] mb-[clamp(28px,4vh,46px)]">Live Projects</h2>
         <div class="grid grid-cols-2 gap-y-[clamp(28px,4vw,64px)] gap-x-[clamp(24px,3vw,48px)] max-[640px]:grid-cols-1 max-[640px]:gap-y-10">
 
           <a class="block group" href="cloud-tizeti.html" aria-label="Tizeti Cloud, Nigerian sovereign cloud infrastructure">
-            <div class="project__media relative aspect-[4/3] bg-[#f2f2f0] dark:bg-[#1e1e1e] overflow-hidden rounded-[2px]">
+            <div class="project__media relative aspect-[4/3] bg-[#1e1e1e] overflow-hidden rounded-[2px]">
               <img src="assets/Cloud Tizeti/Desktop - 7.png" alt="Tizeti Cloud desktop dashboard" loading="lazy" />
             </div>
             <div class="flex items-baseline gap-[0.6em] flex-wrap pt-[18px]">
               <h3 class="reveal text-[1.055rem] font-medium tracking-[-0.01em] group-hover:underline group-hover:underline-offset-[3px]">Tizeti Cloud</h3>
-              <p class="reveal text-[1.055rem] text-[#6f6f6f] dark:text-[#888888]">Sovereign cloud infrastructure built for Nigeria</p>
+              <p class="reveal text-[1.055rem] text-[#888888]">Sovereign cloud infrastructure built for Nigeria</p>
             </div>
           </a>
 
           <a class="block group" href="rexcel.html" aria-label="Rexcel Online Academy, testimonial, enrol and admin pages">
-            <div class="project__media relative aspect-[4/3] bg-[#f2f2f0] dark:bg-[#1e1e1e] overflow-hidden rounded-[2px]">
+            <div class="project__media relative aspect-[4/3] bg-[#1e1e1e] overflow-hidden rounded-[2px]">
               <video muted loop playsinline autoplay preload="metadata">
                 <source src="assets/REXCEL/Screen Recording 2026-08-25 010927.mp4" type="video/mp4" />
               </video>
             </div>
             <div class="flex items-baseline gap-[0.6em] flex-wrap pt-[18px]">
               <h3 class="reveal text-[1.055rem] font-medium tracking-[-0.01em] group-hover:underline group-hover:underline-offset-[3px]">Rexcel Online Academy</h3>
-              <p class="reveal text-[1.055rem] text-[#6f6f6f] dark:text-[#888888]">Enrol, testimonial and admin pages for a live ed-tech platform</p>
+              <p class="reveal text-[1.055rem] text-[#888888]">Enrol, testimonial and admin pages for a live ed-tech platform</p>
             </div>
           </a>
 
           <a class="block group" href="ubliss.html" aria-label="Ubliss Interior, made-to-measure curtains e-commerce site">
-            <div class="project__media relative aspect-[4/3] bg-[#f2f2f0] dark:bg-[#1e1e1e] overflow-hidden rounded-[2px]">
+            <div class="project__media relative aspect-[4/3] bg-[#1e1e1e] overflow-hidden rounded-[2px]">
               <video muted loop playsinline autoplay preload="metadata">
                 <source src="assets/Ublissinterior/Screen Recording 2026-08-25 011744.mp4" type="video/mp4" />
               </video>
             </div>
             <div class="flex items-baseline gap-[0.6em] flex-wrap pt-[18px]">
               <h3 class="reveal text-[1.055rem] font-medium tracking-[-0.01em] group-hover:underline group-hover:underline-offset-[3px]">Ubliss Interior</h3>
-              <p class="reveal text-[1.055rem] text-[#6f6f6f] dark:text-[#888888]">E-commerce site for made-to-measure curtains and finishing pieces</p>
+              <p class="reveal text-[1.055rem] text-[#888888]">E-commerce site for made-to-measure curtains and finishing pieces</p>
             </div>
           </a>
 
           <a class="block group" href="cx-naija.html" aria-label="CX Naija, community platform for customer experience professionals">
-            <div class="project__media relative aspect-[4/3] bg-[#f2f2f0] dark:bg-[#1e1e1e] overflow-hidden rounded-[2px]">
+            <div class="project__media relative aspect-[4/3] bg-[#1e1e1e] overflow-hidden rounded-[2px]">
               <video muted loop playsinline autoplay preload="metadata">
                 <source src="assets/CX- NAIJA/Screen Recording 2026-08-25 012356.mp4" type="video/mp4" />
               </video>
             </div>
             <div class="flex items-baseline gap-[0.6em] flex-wrap pt-[18px]">
               <h3 class="reveal text-[1.055rem] font-medium tracking-[-0.01em] group-hover:underline group-hover:underline-offset-[3px]">CX Naija</h3>
-              <p class="reveal text-[1.055rem] text-[#6f6f6f] dark:text-[#888888]">Community platform for CX professionals in Nigeria</p>
+              <p class="reveal text-[1.055rem] text-[#888888]">Community platform for CX professionals in Nigeria</p>
             </div>
           </a>
 
@@ -162,36 +194,36 @@
 
       <!-- Internship -->
       <div class="pb-[clamp(46px,8vh,96px)]">
-        <h2 class="reveal text-[0.78rem] font-medium uppercase tracking-[0.14em] text-[#b9b9b9] dark:text-[#555555] pb-[clamp(20px,3vh,34px)] border-b border-[#e6e6e6] dark:border-[#2a2a2a] mb-[clamp(28px,4vh,46px)]">Internship</h2>
+        <h2 class="reveal text-[0.78rem] font-medium uppercase tracking-[0.14em] text-[#555555] pb-[clamp(20px,3vh,34px)] border-b border-[#2a2a2a] mb-[clamp(28px,4vh,46px)]">Internship</h2>
         <div class="grid grid-cols-2 gap-y-[clamp(28px,4vw,64px)] gap-x-[clamp(24px,3vw,48px)] max-[640px]:grid-cols-1 max-[640px]:gap-y-10">
 
           <a class="block group" href="seil.html" aria-label="Seil, a guided marketing funnel tool">
-            <div class="project__media relative aspect-[4/3] bg-[#f2f2f0] dark:bg-[#1e1e1e] overflow-hidden rounded-[2px]">
+            <div class="project__media relative aspect-[4/3] bg-[#1e1e1e] overflow-hidden rounded-[2px]">
               <img src="assets/SEIL/18.png" alt="Seil sign-up screen, shown in light and dark themes" loading="lazy" style="object-position: left center" />
             </div>
             <div class="flex items-baseline gap-[0.6em] flex-wrap pt-[18px]">
               <h3 class="reveal text-[1.055rem] font-medium tracking-[-0.01em] group-hover:underline group-hover:underline-offset-[3px]">Seil</h3>
-              <p class="reveal text-[1.055rem] text-[#6f6f6f] dark:text-[#888888]">A guided marketing funnel for non-marketers</p>
+              <p class="reveal text-[1.055rem] text-[#888888]">A guided marketing funnel for non-marketers</p>
             </div>
           </a>
 
           <a class="block group" href="nconnect.html" aria-label="NConnect, an event networking app">
-            <div class="project__media relative aspect-[4/3] bg-[#f2f2f0] dark:bg-[#1e1e1e] overflow-hidden rounded-[2px]">
+            <div class="project__media relative aspect-[4/3] bg-[#1e1e1e] overflow-hidden rounded-[2px]">
               <img src="assets/NCONNECT/NCONNECT_MOCKUP-BD6KUmDy.png" alt="Three NConnect app screens: people discovery, chat and a confirmed connection" loading="lazy" />
             </div>
             <div class="flex items-baseline gap-[0.6em] flex-wrap pt-[18px]">
               <h3 class="reveal text-[1.055rem] font-medium tracking-[-0.01em] group-hover:underline group-hover:underline-offset-[3px]">NConnect</h3>
-              <p class="reveal text-[1.055rem] text-[#6f6f6f] dark:text-[#888888]">Turning event crowds into intentional connections</p>
+              <p class="reveal text-[1.055rem] text-[#888888]">Turning event crowds into intentional connections</p>
             </div>
           </a>
 
           <a class="block group" href="lorekeeper.html" aria-label="Lorekeeper, a worldbuilding workspace">
-            <div class="project__media relative aspect-[4/3] bg-[#f2f2f0] dark:bg-[#1e1e1e] overflow-hidden rounded-[2px]">
+            <div class="project__media relative aspect-[4/3] bg-[#1e1e1e] overflow-hidden rounded-[2px]">
               <img src="assets/Lorekeeper/Frame_2147226817-DhDYUPFq.png" alt="Lorekeeper character dashboard with a character profile and relationship links" loading="lazy" />
             </div>
             <div class="flex items-baseline gap-[0.6em] flex-wrap pt-[18px]">
               <h3 class="reveal text-[1.055rem] font-medium tracking-[-0.01em] group-hover:underline group-hover:underline-offset-[3px]">Lorekeeper</h3>
-              <p class="reveal text-[1.055rem] text-[#6f6f6f] dark:text-[#888888]">One canvas for every character, place and rule</p>
+              <p class="reveal text-[1.055rem] text-[#888888]">One canvas for every character, place and rule</p>
             </div>
           </a>
 
@@ -200,42 +232,54 @@
 
       <!-- Motion Design -->
       <div class="pb-[clamp(46px,8vh,96px)]">
-        <h2 class="reveal text-[0.78rem] font-medium uppercase tracking-[0.14em] text-[#b9b9b9] dark:text-[#555555] pb-[clamp(20px,3vh,34px)] border-b border-[#e6e6e6] dark:border-[#2a2a2a] mb-[clamp(28px,4vh,46px)]">Motion Design</h2>
+        <h2 class="reveal text-[0.78rem] font-medium uppercase tracking-[0.14em] text-[#555555] pb-[clamp(20px,3vh,34px)] border-b border-[#2a2a2a] mb-[clamp(28px,4vh,46px)]">Motion Design</h2>
         <div class="grid grid-cols-2 gap-y-[clamp(28px,4vw,64px)] gap-x-[clamp(24px,3vw,48px)] max-[640px]:grid-cols-1 max-[640px]:gap-y-10">
 
           <a class="block group" href="#" aria-label="Motion Intro animation">
-            <div class="project__media relative aspect-[16/9] bg-[#f2f2f0] dark:bg-[#1e1e1e] overflow-hidden rounded-[2px]">
+            <div class="project__media relative aspect-[16/9] bg-[#1e1e1e] overflow-hidden rounded-[2px]">
               <video muted loop playsinline autoplay preload="metadata">
                 <source src="assets/projects/motion-intro.mp4" type="video/mp4" />
               </video>
             </div>
             <div class="flex items-baseline gap-[0.6em] flex-wrap pt-[18px]">
               <h3 class="reveal text-[1.055rem] font-medium tracking-[-0.01em] group-hover:underline group-hover:underline-offset-[3px]">Motion Intro</h3>
-              <p class="reveal text-[1.055rem] text-[#6f6f6f] dark:text-[#888888]">Animated title and intro sequence</p>
+              <p class="reveal text-[1.055rem] text-[#888888]">Animated title and intro sequence</p>
             </div>
           </a>
 
           <a class="block group" href="#" aria-label="Pewbeam logo animation">
-            <div class="project__media relative aspect-[16/9] bg-[#f2f2f0] dark:bg-[#1e1e1e] overflow-hidden rounded-[2px]">
+            <div class="project__media relative aspect-[16/9] bg-[#1e1e1e] overflow-hidden rounded-[2px]">
               <video muted loop playsinline autoplay preload="metadata">
                 <source src="assets/projects/pewbeam.mp4" type="video/mp4" />
               </video>
             </div>
             <div class="flex items-baseline gap-[0.6em] flex-wrap pt-[18px]">
               <h3 class="reveal text-[1.055rem] font-medium tracking-[-0.01em] group-hover:underline group-hover:underline-offset-[3px]">Pewbeam</h3>
-              <p class="reveal text-[1.055rem] text-[#6f6f6f] dark:text-[#888888]">Logo animation, a small tribute to Dara Sobaloju</p>
+              <p class="reveal text-[1.055rem] text-[#888888]">Logo animation, a small tribute to Dara Sobaloju</p>
             </div>
           </a>
 
           <a class="block group" href="#" aria-label="Motion practice study">
-            <div class="project__media relative aspect-[16/9] bg-[#f2f2f0] dark:bg-[#1e1e1e] overflow-hidden rounded-[2px]">
+            <div class="project__media relative aspect-[16/9] bg-[#1e1e1e] overflow-hidden rounded-[2px]">
               <video muted loop playsinline autoplay preload="metadata">
                 <source src="assets/projects/motion-practice.mp4" type="video/mp4" />
               </video>
             </div>
             <div class="flex items-baseline gap-[0.6em] flex-wrap pt-[18px]">
               <h3 class="reveal text-[1.055rem] font-medium tracking-[-0.01em] group-hover:underline group-hover:underline-offset-[3px]">Practice</h3>
-              <p class="reveal text-[1.055rem] text-[#6f6f6f] dark:text-[#888888]">Personal motion study</p>
+              <p class="reveal text-[1.055rem] text-[#888888]">Personal motion study</p>
+            </div>
+          </a>
+
+          <a class="block group" href="#" aria-label="Donum coming soon motion">
+            <div class="project__media relative aspect-[16/9] bg-[#FFF6D6] dark:bg-[#1e1e1e] overflow-hidden rounded-[2px] border border-[#2a2a2a]">
+              <video muted loop playsinline autoplay preload="metadata" poster="assets/Donum/TWITTER POST.png">
+                <source src="assets/Donum/Donum-coming-soon-v2.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="flex items-baseline gap-[0.6em] flex-wrap pt-[18px]">
+              <h3 class="reveal text-[1.055rem] font-medium tracking-[-0.01em] group-hover:underline group-hover:underline-offset-[3px]">Donum</h3>
+              <p class="reveal text-[1.055rem] text-[#888888]">Coming soon product teaser motion</p>
             </div>
           </a>
 
@@ -245,18 +289,96 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="border-t border-[#e6e6e6] dark:border-[#2a2a2a] py-[clamp(28px,5vh,44px)]">
-    <div class="flex items-center justify-between gap-5 flex-wrap px-[clamp(20px,5vw,80px)] max-w-[1680px] mx-auto">
-      <span class="text-[0.94rem] text-[#6f6f6f] dark:text-[#888888]">© 2026 Ayobami Shoyombo</span>
-      <nav class="flex items-center gap-[clamp(16px,2.2vw,24px)]" aria-label="Social">
-        <a href="https://wa.me/2349131673055" target="_blank" rel="noopener" aria-label="WhatsApp" class="inline-flex items-center justify-center hover:text-[#6f6f6f] dark:hover:text-[#888888] hover:-translate-y-[2px] transition-[color,transform] duration-[250ms]">
+
+  <!-- CTA WhatsApp — Panoramic flyer reel -->
+  <section class="cta-whatsapp">
+    <div class="cta-pano" aria-hidden="true">
+      <div class="cta-pano__track">
+          <img src="assets/Graphics Design/BAYSIDE.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/BAYSIDE%202.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/CX%20NAIJA%20FLYER.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/CUSTOMER%20SERVICE%20WEEK%203.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/CUSTOMER%20SERVICE%20WEEK%204.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/FreeFlowHQ.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/GROUP.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/BAYSIDE.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/BAYSIDE%202.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/CX%20NAIJA%20FLYER.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/CUSTOMER%20SERVICE%20WEEK%203.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/CUSTOMER%20SERVICE%20WEEK%204.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/FreeFlowHQ.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/GROUP.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/BAYSIDE.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/BAYSIDE%202.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/CX%20NAIJA%20FLYER.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/CUSTOMER%20SERVICE%20WEEK%203.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/CUSTOMER%20SERVICE%20WEEK%204.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/FreeFlowHQ.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/GROUP.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/BAYSIDE.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/BAYSIDE%202.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/CX%20NAIJA%20FLYER.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/CUSTOMER%20SERVICE%20WEEK%203.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/CUSTOMER%20SERVICE%20WEEK%204.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/FreeFlowHQ.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/GROUP.png" alt="" loading="lazy" decoding="async" />
+      </div>
+      <div class="cta-pano__track cta-pano__track--reverse">
+          <img src="assets/Graphics Design/INDEPENDENCE%201.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/INDEPENDENCE%202.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/NANA.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/REVEN%20FLYER.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/SOCIAL%20MEDIA.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/UCHE.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/INDEPENDENCE%201.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/INDEPENDENCE%202.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/NANA.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/REVEN%20FLYER.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/SOCIAL%20MEDIA.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/UCHE.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/INDEPENDENCE%201.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/INDEPENDENCE%202.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/NANA.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/REVEN%20FLYER.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/SOCIAL%20MEDIA.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/UCHE.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/INDEPENDENCE%201.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/INDEPENDENCE%202.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/NANA.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/REVEN%20FLYER.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/SOCIAL%20MEDIA.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/Graphics Design/UCHE.png" alt="" loading="lazy" decoding="async" />
+      </div>
+      <div class="cta-pano__veil"></div>
+    </div>
+    <div class="relative z-10 max-w-[1680px] mx-auto px-[clamp(20px,5vw,80px)] py-[clamp(56px,10vh,96px)] flex flex-col items-center text-center gap-6">
+      <p class="text-[0.78rem] font-medium uppercase tracking-[0.18em] text-[#888888]">Available for new projects</p>
+      <h2 class="text-[clamp(1.9rem,1.2rem+2.8vw,3.4rem)] font-semibold tracking-[-0.025em] leading-[1.04] max-w-[18ch] text-[#f0f0ee]">Have an idea? Let&apos;s make it real.</h2>
+      <p class="text-[clamp(1.02rem,0.98rem+0.45vw,1.18rem)] text-[#888888] max-w-[32em] leading-[1.6]">From product to flyer to full brand system, I design and ship work people remember. Hit me on WhatsApp and let&apos;s start.</p>
+      <a href="https://wa.me/2349131673055?text=Hi%20Ayobami%2C%20I%20came%20from%20your%20portfolio%20and%20would%20love%20to%20work%20together." target="_blank" rel="noopener" class="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-[#050505] font-medium text-[0.98rem] tracking-[-0.01em] px-7 py-[14px] rounded-full transition-colors duration-200 shadow-[0_8px_30px_rgba(37,211,102,0.28)] hover:shadow-[0_10px_36px_rgba(37,211,102,0.34)] hover:-translate-y-[1px] will-change-transform">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Send a WhatsApp message
+      </a>
+      <span class="text-[0.78rem] text-[#555555]">Replies within a few hours &middot; 234 913 167 3055</span>
+    </div>
+  </section>
+
+    <!-- FOOTER — Ideogram MJ toe-stand watermark -->
+    <!-- FOOTER — Ideogram MJ toe-stand watermark -->
+  <footer class="site-footer--mj">
+    <div class="footer-mj-watermark" aria-hidden="true">
+      <img src="assets/mj-toe-stand.jpg" alt="" loading="lazy" decoding="async" />
+    </div>
+    <div class="footer-main">
+      <span class="footer-copy-pill">© 2026 Ayobami Shoyombo</span>
+      <nav class="footer-links-pill" aria-label="Social">
+        <a href="https://wa.me/2349131673055" target="_blank" rel="noopener" aria-label="WhatsApp" class="inline-flex items-center justify-center hover:text-[#888888] hover:-translate-y-[2px] transition-[color,transform] duration-[250ms]">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
         </a>
-        <a href="https://www.linkedin.com/in/ayobami-shoyombo-918533276/" target="_blank" rel="noopener" aria-label="LinkedIn" class="inline-flex items-center justify-center hover:text-[#6f6f6f] dark:hover:text-[#888888] hover:-translate-y-[2px] transition-[color,transform] duration-[250ms]">
+        <a href="https://www.linkedin.com/in/ayobami-shoyombo-918533276/" target="_blank" rel="noopener" aria-label="LinkedIn" class="inline-flex items-center justify-center hover:text-[#888888] hover:-translate-y-[2px] transition-[color,transform] duration-[250ms]">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.8 0 0 .78 0 1.73v20.54C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .78 23.2 0 22.22 0Z"/></svg>
         </a>
-        <a href="https://x.com/kazeUI_UX" target="_blank" rel="noopener" aria-label="X (formerly Twitter)" class="inline-flex items-center justify-center hover:text-[#6f6f6f] dark:hover:text-[#888888] hover:-translate-y-[2px] transition-[color,transform] duration-[250ms]">
+        <a href="https://x.com/kazeUI_UX" target="_blank" rel="noopener" aria-label="X (formerly Twitter)" class="inline-flex items-center justify-center hover:text-[#888888] hover:-translate-y-[2px] transition-[color,transform] duration-[250ms]">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
         </a>
       </nav>
